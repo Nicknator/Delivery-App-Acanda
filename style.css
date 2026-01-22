@@ -1,0 +1,81 @@
+body {
+
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.header {
+    background-color: #726D6D;
+    height: 128px;
+    width: 1440px;
+    position: relative;
+     z-index: 2;
+
+}
+
+.header-img {
+    position: absolute;
+    height: 24px;
+    width: 81px;
+    top: 57px;
+    left: 114px;
+
+}
+
+
+.header-photo {
+    height: 508px;
+    width: 1440px;
+    top: 59px;
+    z-index: 1;
+    position: absolute
+    
+    
+}
+
+.header-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: fill;
+
+}
+
+
+.header-img-round {
+    position: absolute;
+    top: 432px;
+    left: 620px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 2; 
+}
+
+
+.restaurant-info {
+    position: absolute;
+    top: 654px;
+    left: 284px;         /* Exakter Abstand von der linken Kante */
+    height: 104px;
+    width: 872px;
+    text-align: center;
+    z-index: 2;
+    background-color: rgb(212, 28, 7); /* nur zum Testen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* vertikal zentrieren */
+    align-items: center;      /* horizontal zentrieren */
+}
+
+
+
