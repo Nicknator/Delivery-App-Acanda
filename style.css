@@ -17,18 +17,37 @@ body {
     height: 128px;
     width: 1440px;
     position: relative;
-     z-index: 2;
-
+    z-index: 2;
 }
 
 .header-img {
     position: absolute;
-    height: 24px;
-    width: 81px;
     top: 57px;
     left: 114px;
+    height: 24px;
+    width: 81px;
+}
+
+
+.triplebar-container {
+    position: absolute;
+    top: 39px;
+    left: 1340px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 
 }
+
+
+.TripleBar {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+}
+
+
+
 
 
 .header-photo {
@@ -37,8 +56,6 @@ body {
     top: 59px;
     z-index: 1;
     position: absolute
-    
-    
 }
 
 .header-photo img {
@@ -58,24 +75,129 @@ body {
     height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    z-index: 2; 
+    z-index: 2;
 }
 
 
 .restaurant-info {
     position: absolute;
-    top: 654px;
-    left: 284px;         /* Exakter Abstand von der linken Kante */
     height: 104px;
     width: 872px;
-    text-align: center;
-    z-index: 2;
-    background-color: rgb(212, 28, 7); /* nur zum Testen */
+    top: 654px;
+    left: 284px;
+    background-color: rgb(212, 28, 7);
     display: flex;
     flex-direction: column;
-    justify-content: center;  /* vertikal zentrieren */
-    align-items: center;      /* horizontal zentrieren */
+    align-items: center;
+    z-index: 2;
+    padding: 12px 0;
+
+}
+
+
+.frame-89 {
+    background-color: royalblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+
+
 }
 
 
 
+.frame-28 {
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+}
+
+.frame-27 {
+    display: flex;
+    align-items: center;
+
+
+
+}
+
+.starField {
+    font-size: 28px;
+    line-height: 1;
+    /* 👈 extrem wichtig */
+    display: flex;
+    align-items: center;
+    /* vertikal */
+}
+
+
+
+
+
+.textFrame {
+    background-color: lime;
+    text-align: center;
+
+
+}
+
+
+
+.menuList {
+    position: absolute;
+    top: 1024px;
+    left: 119px;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+}
+
+
+.menuStyle {
+    position: absolute;
+    top: 1024px;
+    left: 119px;
+
+}
+
+
+.menuTemplate {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+    width: 100%;
+}
+
+.contentPosition {
+    position: relative;
+    padding-right: 80px;
+    /* Platz für den Preis */
+}
+
+.titleRow {
+    display: flex;
+}
+
+.price {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.name {
+    margin: 0;
+    font-weight: bold;
+}
+
+.description {
+    margin-top: 4px;
+    color: #666;
+}
