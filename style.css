@@ -150,46 +150,57 @@ body {
     position: absolute;
     top: 1024px;
     left: 119px;
-
-
+    width: 713px;
     display: flex;
     flex-direction: column;
     align-items: start;
-
+    background-color: rgb(17, 169, 50);
 }
 
 
-.menuStyle {
-    position: absolute;
-    top: 1024px;
-    left: 119px;
 
-}
+
+
+
 
 
 .menuTemplate {
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    gap: 16px;
-    width: 100%;
+    display: flex;
+    /* gap: 16px; */
+    align-items: flex-start;
+    /* Content oben am Bild ausrichten */
+    width: 80%;
 }
 
+
+
+.menuTemplate img {
+    width: 207px;
+    height: 121px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
 .contentPosition {
-    position: relative;
-    padding-right: 80px;
-    /* Platz für den Preis */
+    background-color: #EEEDEB;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    /* Name/Description oben, Button unten */
+    height: 121px;
+    /* Höhe = Bildhöhe */
 }
 
 .titleRow {
     display: flex;
-}
-
-.price {
-    position: absolute;
-    right: 0;
-    top: 0;
-    font-weight: bold;
-    white-space: nowrap;
+    justify-content: space-between;
+    /* Name links, Preis rechts */
+    align-items: flex-start;
+    /* oben auf derselben Höhe wie Bild */
+    margin-bottom: 8px;
+    /* Abstand zur Beschreibung */
 }
 
 .name {
@@ -197,7 +208,76 @@ body {
     font-weight: bold;
 }
 
+.price {
+    margin: 0;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
 .description {
-    margin-top: 4px;
+    margin: 0;
     color: #666;
+    line-height: 1.5;
+}
+
+button {
+    align-self: flex-end;
+    /* Button rechts unten */
+}
+
+
+
+
+
+.basket-field {
+    position: absolute;
+    top: 1024px;
+    left: 1005px;
+    width: 435px;
+    height: 794px;
+    background-color: #726D6D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #000000;
+    width: 80%;
+    /* Breite anpassen */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+    background-color: #726D6D;
+    position: static;
+    height: 128px;
+    width: 1440px;
+    margin-top: 60px;
+
 }
