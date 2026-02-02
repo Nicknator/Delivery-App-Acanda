@@ -1,164 +1,207 @@
-body {
-
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    /* Verhindert, dass Padding die Breite von Elementen vergrößert */
 }
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+}
+
 
 
 .container {
     display: flex;
     flex-direction: column;
-    position: relative;
+    align-items: center;
+    justify-content: center;
+    max-width: 1440px;
+    height: auto;
 }
 
 
 .header {
-    background-color: #726D6D;
+    width: 100%;
+    /* Volle Breite für den Hintergrund */
     height: 128px;
-    width: 1440px;
-    position: relative;
-    z-index: 2;
+    background-color: #726D6D;
+    display: flex;
+    align-items: center;
+    /* Vertikal zentriert */
+    justify-content: space-between;
+    padding-left: 114px;
+    padding-right: 100px;
+    box-sizing: border-box;
 }
+
+
 
 .header-img {
-    position: absolute;
-    top: 57px;
-    left: 114px;
-    height: 24px;
     width: 81px;
+    height: 24px;
+
 }
 
-
 .triplebar-container {
-    position: absolute;
-    top: 39px;
-    left: 1340px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 
 }
 
 
 .TripleBar {
-    width: 35px;
-    height: 5px;
-    background-color: black;
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
 }
 
 
 
 
+.hero-section {
+    width: 100%;
+    max-width: 1440px;
+    margin-bottom: 59px;
+    /* 59px Abstand zum Header */
+    display: flex;
+    flex-direction: column;
+    /* Elemente untereinander */
+    align-items: center;
+    /* Horizontal zentrieren */
+}
 
 .header-photo {
+    width: 100%;
     height: 508px;
-    width: 1440px;
-    top: 59px;
-    z-index: 1;
-    position: absolute
 }
 
 .header-photo img {
     width: 100%;
     height: 100%;
-    display: block;
-    object-fit: fill;
-
+    object-fit: cover;
 }
 
-
 .header-img-round {
-    position: absolute;
-    top: 432px;
-    left: 620px;
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    overflow: hidden;
+    background-color: white;
+    border: 5px solid white;
+    margin-top: -100px;
     z-index: 2;
 }
+
+
+
+
+
+
+
+
 
 
 .restaurant-info {
-    position: absolute;
-    height: 104px;
-    width: 872px;
-    top: 654px;
-    left: 284px;
-    background-color: rgb(212, 28, 7);
+    width: 100%;
+    max-width: 1440px;
+    margin: 40px auto 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 2;
-    padding: 12px 0;
-
+    gap: 12px;
 }
-
 
 .frame-89 {
-    background-color: royalblue;
     display: flex;
     align-items: center;
-    justify-content: space-around;
     gap: 20px;
-
-
 }
 
-
+h1 {
+    margin: 0;
+    font-size: 32px;
+}
 
 .frame-28 {
-    background-color: yellow;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 6px;
-
-}
-
-.frame-27 {
-    display: flex;
-    align-items: center;
-
-
-
+    gap: 8px;
 }
 
 .starField {
-    font-size: 28px;
-    line-height: 1;
-    /* 👈 extrem wichtig */
-    display: flex;
-    align-items: center;
-    /* vertikal */
+    color: #FFC107;
+    font-size: 24px;
 }
 
-
-
-
+.frame-27 a {
+    text-decoration: none;
+    color: #666;
+    font-size: 18px;
+}
 
 .textFrame {
-    background-color: lime;
+    margin: 0;
+    font-size: 20px;
+    color: #333;
     text-align: center;
-
-
 }
 
 
+
+
+
+
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    /* Zentriert den gesamten Block */
+    align-items: flex-start;
+    /* Wichtig: Erlaubt dem Warenkorb zu "kleben" */
+    gap: 173px;
+    /* Der exakte Abstand laut deiner Figma-Vorgabe */
+    width: 100%;
+    max-width: 1440px;
+    margin: 50px auto;
+    /* Abstand nach oben zur Restaurant-Info */
+    box-sizing: border-box;
+}
 
 .menuList {
-    position: absolute;
-    top: 1024px;
-    left: 119px;
     width: 713px;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    background-color: rgb(17, 169, 50);
+    /* Deine exakte Wunschbreite aus Figma */
+    flex-shrink: 0;
+    /* Verhindert, dass das Menü schmaler wird */
+    background-color: #f9f9f9;
+    /* Optional: Nur zum Testen der Fläche */
 }
 
+.basket-field {
+    width: 435px;
+    /* Deine exakte Wunschbreite aus Figma */
+    background-color: #726D6D;
+    min-height: 400px;
+    /* Start-Höhe für den leeren Korb */
 
+    /* STICKY-LOGIK (Punkt 4 der Checkliste) */
+    position: sticky;
+    top: 20px;
+    /* Klebt 20px unter dem oberen Rand beim Scrollen */
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    /* Macht die Ecken schick wie bei Lieferando */
+}
 
 
 
@@ -166,91 +209,115 @@ body {
 
 .menuTemplate {
     display: flex;
-    /* gap: 16px; */
-    align-items: flex-start;
-    /* Content oben am Bild ausrichten */
-    width: 80%;
+    gap: 16px;
+    padding: 16px;
+    border-bottom: 1px solid #E0E0E0;
+    background-color: white;
 }
 
-
-
 .menuTemplate img {
-    width: 207px;
-    height: 121px;
+    width: 120px;
+    /* Oder deine Wunschgröße laut Figma */
+    height: 120px;
     object-fit: cover;
     border-radius: 8px;
 }
 
-
 .contentPosition {
-    background-color: #EEEDEB;
+    flex: 1;
+    /* Nimmt den restlichen Platz ein */
     display: flex;
     flex-direction: column;
-    flex: 1;
     justify-content: space-between;
-    /* Name/Description oben, Button unten */
-    height: 121px;
-    /* Höhe = Bildhöhe */
 }
+
+
+
+.contentPosition button {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    /* Verhindert das Verformen */
+    align-self: flex-end;
+    /* Setzt den Button nach rechts unten, ohne ihn zu dehnen */
+    cursor: pointer;
+    border-radius: 30%;
+}
+
+
+
 
 .titleRow {
     display: flex;
     justify-content: space-between;
-    /* Name links, Preis rechts */
-    align-items: flex-start;
-    /* oben auf derselben Höhe wie Bild */
-    margin-bottom: 8px;
-    /* Abstand zur Beschreibung */
+    align-items: center;
 }
 
 .name {
-    margin: 0;
     font-weight: bold;
+    font-size: 18px;
+    margin: 0;
 }
 
 .price {
+    font-weight: bold;  
     margin: 0;
-    font-weight: bold;
-    white-space: nowrap;
 }
 
 .description {
-    margin: 0;
     color: #666;
-    line-height: 1.5;
-}
-
-button {
-    align-self: flex-end;
-    /* Button rechts unten */
+    font-size: 14px;
+    margin: 8px 0;
 }
 
 
 
 
 
-.basket-field {
-    position: absolute;
-    top: 1024px;
-    left: 1005px;
-    width: 435px;
-    height: 794px;
-    background-color: #726D6D;
+.basket-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
-}
-
-
-
-hr {
-    border: 0;
-    height: 1px;
-    background: #000000;
+    justify-content: center;
     width: 80%;
-    /* Breite anpassen */
+    height: 80px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    gap: 10px;
+}
+
+
+.dishBasketField{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 240px;
+    height: 30px;
+    background-color: aquamarine;
+}
+
+
+.priceButtonField{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 240px;
+    height: 30px;
+    background-color: #FFC107;
+}
+
+.addTrashButtonField{
+    display: flex;
+    justify-content: center;
+}
+
+.addTrashButtonField button{
+    width: 20px;
+    height: 20px;
+    border-radius: 20%;
 }
 
 
@@ -259,25 +326,30 @@ hr {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.footer {
+.footer{
     background-color: #726D6D;
-    position: static;
-    height: 128px;
-    width: 1440px;
-    margin-top: 60px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    
+}
+
+
+
+
+
+@media (max-width: 1000px) {
+    body {
+        /* Hier könntest du es wieder auf den Standard setzen */
+        overflow-x: visible;
+    }
+
+    .container {
+        /* WICHTIG: Hier musst du von 1440px auf 100% wechseln */
+        max-width: 100%;
+    }
+
 
 }
