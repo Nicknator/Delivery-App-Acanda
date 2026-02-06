@@ -1,6 +1,7 @@
 let dataMenu = [
     {
         category: "Street Food",
+        image: "img/5.png",
         dish: [
             {
                 name: "Suya",
@@ -39,6 +40,7 @@ let dataMenu = [
     },
     {
         category: "Bowls",
+        image: "img/6.png",
         dish: [
             {
                 name: "Poké Bowl",
@@ -79,6 +81,7 @@ let dataMenu = [
     },
     {
         category: "Burger",
+        image: "img/7.png",
         dish: [
             {
                 name: "Krabbenburger",

@@ -26,21 +26,24 @@ function getMenuTemplate(dish) {
 function getBasketItemTemplate(item) {
     let totalPrice = item.price * item.amount;
     return `
-        <div class="basket-item">
-            <div class="dishBasketField">
-                <span>${item.amount}x ${item.name}</span>
-        </div>
+        <div class="basket-item typography">
+            
+                <div class="dishBasketField">
+                    <span>${item.amount}x ${item.name}</span>
+                </div>
 
-        <div class="priceButtonField">
-            <div class="addTrashButtonField">
-                <button onclick="minusBasket('${item.name}')"><span>&#128465;</span></button>
-                <p>1</p>
-                <button onclick="addBasket('${item.name}', ${item.price})">+</button>
-            </div>
+                <div class="priceButtonField">
+                    <div class="addTrashButtonField">
+                        <button onclick="minusBasket('${item.name}')"><span>&#128465;</span></button>
+                        <p>1</p>
+                        <button onclick="addBasket('${item.name}', ${item.price}) ">+</button>
+                    </div>
 
-                <span>${totalPrice.toFixed(2)} €</span>
-        </div>
+                    <span>${totalPrice.toFixed(2)} €</span>
+                </div>
 
+
+                
 
         </div>`;
 
@@ -53,13 +56,29 @@ function getBasketItemTemplate(item) {
 
 function getBasketTotalTemplate(sum, totalSum) {
     return `
-            <span><strong>Zwischensumme: ${sum.toFixed(2)} €</strong></span>
-            <span><strong>Lieferkosten: ${deliveryCosts.toFixed(2)} €</strong></span><br>
-            <hr>
-            <p><strong>Gesamtbetrag: ${totalSum.toFixed(2)} €</strong></p>
-            <div>
-            <button onclick="orderButton('')"> Jetzt bestellen (${totalSum.toFixed(2)} €)</button>
+
+         <div class="basket-item-down">
+            <div class="priceField">
+
+            <span class="summen-container"><strong>Zwischensumme</strong>
+            <strong class="nervig">${sum.toFixed(2)} €</strong>
+            </span>
+
+
+            <span class="summen-container"><strong>Lieferkosten</strong> 
+            <strong class="nervig">${deliveryCosts.toFixed(2)} €</strong>
+            </span> 
+            <hr class="separator">
+            <span class="summen-container"><strong>Gesamtbetrag</strong> 
+            <strong class="nervig">${totalSum.toFixed(2)} €</strong>
+            </span> 
             </div>
+
+
+            <div class="buttonFieldSet" >
+            <button class="buttonSet" onclick="orderButton('')"> <h2>Jetzt bestellen (${totalSum.toFixed(2)} €)</h2></button>
+            </div>
+         </div>
         `;
 }
 

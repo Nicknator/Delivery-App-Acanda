@@ -1,0 +1,88 @@
+:root {
+    /* Dein saftiges Neon-Rot zentral definiert */
+    --neon-red: #FF3131;
+    --dark-bg: #121212;
+    --white-wh: white;
+    --accent-orange: #FF6A00;
+
+
+
+
+}
+
+
+.iconSet {
+    width: 100px;
+    object-fit: cover;
+    transform: scale(1.5);
+    transform-origin: center;
+    left: -20px;
+    z-index: 10;
+}
+
+.TripleBar {
+    background-color: black;
+}
+
+
+
+.streetFoodDish {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+    /* Wichtig: Bezugspunkt für das Bild */
+    height: 60px;
+    /* Festgelegte Höhe für das Feld */
+    overflow: visible;
+    background-color: var(--neon-red);
+
+}
+
+
+
+
+.streetFoodDish h2 {
+    font-size: 30px;
+
+}
+
+.basket-field {
+    background-color: var(--dark-bg);
+}
+
+.basket-item {
+    /* background-color: var(--accent-orange); */
+    background: #F8E4D4;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    
+}
+
+.menuTemplate {
+    background-color: #F8E4D4;
+}
+
+
+
+.headlineBasket {
+    color: var(--white-wh);
+}
+
+.priceField {
+    color: var(--white-wh);
+}
+
+
+
+.buttonSet {
+    background-color: var(--neon-red);
+    color: var(--white-wh);
+
+}
+
+
+
+.footer {
+    background-color: var(--neon-red);
+
+}

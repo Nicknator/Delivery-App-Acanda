@@ -1,2 +1,2 @@
-# Delivery-App-Acanda
+# Delivery-App-Doorsnap
 Ein Bestell-App für Gerichte.

@@ -10,7 +10,14 @@ function renderMenu() {
 
     dataMenu.forEach(category => {
         // console.log(category.category);
-        menuContent.innerHTML += ` <h2>${category.category}</h2>`
+        menuContent.innerHTML += `
+
+        <div class="streetFoodDish">
+        <img src="${category.image}" class="iconSet">
+        <h2>${category.category}</h2>
+        </div>
+        
+        `
 
 
         category.dish.forEach(dish => {
@@ -25,16 +32,13 @@ function renderMenu() {
 
 
 
-
-
-
-
-
-
 function renderBasket() {
     let basketField = document.getElementById("basketField");
-    basketField.innerHTML = `<h2>Dein Warenkorb</h2>`;
+    basketField.innerHTML = `<h2 class="headlineBasket">Dein Warenkorb</h2>`;
 
+    // Scrollbarer Bereich für Items
+    basketField.innerHTML += `<div class="basket-container" id="basketItemsContainer"></div>`;
+    let basketItemsContainer = document.getElementById("basketItemsContainer");
 
     let sum = 0;
 
@@ -42,17 +46,17 @@ function renderBasket() {
         let totalPrice = item.price * item.amount;
         sum += totalPrice;
 
-        basketField.innerHTML += getBasketItemTemplate(item)
+        basketItemsContainer.innerHTML += getBasketItemTemplate(item);
     });
 
     if (basket.length > 0) {
-        // Erst hier, wenn wir wissen wie hoch 'sum' ist, rechnen wir die Endsumme aus
         let totalSum = sum + deliveryCosts;
-        console.log(totalSum)
 
+        // Gesamtbereich bleibt **außerhalb** des Scroll-Containers
         basketField.innerHTML += getBasketTotalTemplate(sum, totalSum);
-    }
+    } 
 }
+
 
 
 
@@ -100,7 +104,7 @@ function minusBasket(name) {
         }
 
         else {
-            // Das hier muss INS erste if, aber ins ELSE vom amount > 1
+            
             let index = basket.indexOf(foundObject);
             basket.splice(index, 1);
         }
