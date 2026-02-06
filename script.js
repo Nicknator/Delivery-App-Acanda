@@ -11,10 +11,11 @@ function renderMenu() {
     dataMenu.forEach(category => {
         // console.log(category.category);
         menuContent.innerHTML += `
-
+        
         <div class="streetFoodDish">
         <img src="${category.image}" class="iconSet">
         <h2>${category.category}</h2>
+         
         </div>
         
         `
@@ -54,7 +55,7 @@ function renderBasket() {
 
         // Gesamtbereich bleibt **außerhalb** des Scroll-Containers
         basketField.innerHTML += getBasketTotalTemplate(sum, totalSum);
-    } 
+    }
 }
 
 
@@ -104,7 +105,7 @@ function minusBasket(name) {
         }
 
         else {
-            
+
             let index = basket.indexOf(foundObject);
             basket.splice(index, 1);
         }
@@ -112,4 +113,22 @@ function minusBasket(name) {
 
     }
 }
+
+
+function mobileMenu() {
+    let mobileField = document.getElementById("mobileField");
+    mobileField.innerHTML = `
+       <nav class="mobile-menu">
+            <button class="menu-btn"><i class="fas fa-home"></i></button>
+            <button class="menu-btn"><i class="fas fa-user"></i></button>
+            <button class="menu-btn"><i class="fas fa-shopping-cart"></i></button>
+            <button class="menu-btn"><i class="fas fa-basket-shopping"></i></button>
+      </nav>
+
+    `;
+}
+
+
+
+mobileMenu();
 
