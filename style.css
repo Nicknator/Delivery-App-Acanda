@@ -175,9 +175,11 @@ h1 {
 /* content-wrapper                 */
 .content-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    /* ← links ausrichten */
     align-items: flex-start;
-    gap: 173px;
+    gap: 20px;
+    /* Abstand zwischen Menü und Basket */
     width: 100%;
     max-width: 1440px;
     margin: 50px auto;
@@ -222,9 +224,17 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     gap: 10px;
-
     height: 600px;
     box-sizing: border-box;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.basket-field.visible {
+    visibility: visible;
+    opacity: 1;
 }
 
 
@@ -263,16 +273,15 @@ h1 {
 
 
 .contentPosition button {
-    width: 32px;
-    height: 32px;
+    width: 80px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     align-self: flex-end;
     cursor: pointer;
-    border-radius: 30%;
-
+    border-radius: 20px;
 }
 
 
@@ -306,7 +315,21 @@ h1 {
 
 
 
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: end;
+}
 
+.counter button {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+/* Menuleiste */
 
 
 
@@ -360,12 +383,22 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     width: 100%;
     border-radius: 15px;
-    gap: 10px;
-    padding: 10px;
+
+    gap: 2px;
+    padding: 6px;
+
     box-sizing: border-box;
 }
+
+.basket-item-down p,
+.basket-item-down span {
+    margin: 0;
+    line-height: 1.1;
+}
+
 
 
 
@@ -456,7 +489,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     gap: 80px;
-    font-size: 20px;
+    font-size: 14px;
     width: 100%;
 }
 
@@ -475,7 +508,7 @@ h1 {
 
 
 .buttonSet {
-    width: 300px;
+    width: 100%;
     height: 60px;
     border-radius: 30px;
     background-color: #E6E5E5;
@@ -505,6 +538,56 @@ h1 {
 .mobile-menu {
     display: none;
 }
+
+
+
+
+#orderDialog {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark-bg);
+    color: var(--white-wh);
+    border: none;
+    border-radius: 12px;
+    padding: 40px 30px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+}
+
+#orderDialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#orderDialog h2 {
+    margin: 16px 0;
+    font-size: 24px;
+}
+
+#orderDialog p {
+    font-size: 18px;
+    margin-bottom: 24px;
+}
+
+#orderDialog button {
+    background-color: var(--neon-red);
+    color: var(--white-wh);
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#orderDialog button:hover {
+    transform: scale(1.05);
+}
+
 
 
 
@@ -546,7 +629,7 @@ h1 {
         min-height: auto;
         max-height: 500px;
         top: 10px;
-        /* kleiner Abstand oben */
+
     }
 
     .hero-section {
@@ -595,6 +678,11 @@ h1 {
         margin: 20px auto;
     }
 
+
+
+
+
+
     .menuList,
     .basket-field {
         width: 100%;
@@ -620,9 +708,13 @@ h1 {
         font-size: 16px;
     }
 
-   
+
     .basket-container {
         max-height: 250px;
+    }
+
+    .buttonFrontSet {
+        font-size: 18px;
     }
 
 
@@ -670,9 +762,47 @@ h1 {
         font-size: 28px;
     }
 
+    
+
 
 
 
 
 
 }
+
+
+
+
+.responsivPrice {
+    display: none;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .desktopPrice {
+        display: none; 
+    }
+
+   .titleRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+   
+    .responsivPrice {
+        display: block;
+        margin-top: 6px;
+        margin-left: 0;
+    }
+
+   
+   .contentPosition button {
+    margin-top: auto;   
+    align-self: flex-end;
+    margin-bottom: -30px;
+}
+
+}
+
+

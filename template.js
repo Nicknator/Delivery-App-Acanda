@@ -9,16 +9,21 @@ function getMenuTemplate(dish) {
             <div class="contentPosition">
                 <div class="titleRow">
                     <p class="name">${dish.name}</p>
-                    <p class="price">${dish.price} €</p>
+                    <p class="price desktopPrice">${dish.price} €</p>
                 </div>
                 <p class="description">${dish.description}</p>
-                <button onclick="addBasket('${dish.name}', ${dish.price})">+</button>
+
+                ${renderDishControls(dish)}
+
+                <!-- Preis nur für Mobile -->
+                <p class="price responsivPrice">${dish.price} €</p>
+                
 
             </div>
         </div>
-            `
-
+    `;
 }
+
 
 
 
@@ -76,7 +81,8 @@ function getBasketTotalTemplate(sum, totalSum) {
 
 
             <div class="buttonFieldSet" >
-            <button class="buttonSet" onclick="orderButton('')"> <h2>Jetzt bestellen (${totalSum.toFixed(2)} €)</h2></button>
+            <button class="buttonSet" onclick="orderButton('')" > 
+            <h2 class="buttonFrontSet">Jetzt bestellen (${totalSum.toFixed(2)} €)</h2></button>
             </div>
          </div>
         `;
@@ -87,14 +93,39 @@ function getBasketTotalTemplate(sum, totalSum) {
 
 
 function getOrderButtonTemplate() {
-    return `<h2>Dein Warenkorb</h2>
-    <dialog open>
-            <h2>🎉🎆🚚 </h2>
-            <h2>Glückwunsch Bestellung bestätigt!</h2>
-            <p> Dein Essen ist auf dem Weg!</p>
-            <form method="dialog">
-                <button>OK</button>
-            </form>
-    </dialog>   
-    `
+    return `         
+        
+        
+            <dialog open id="orderDialog">
+                <div class="order-dialog-content">
+                    <h2>Dein Warenkorb</h2>
+                    <h2>🎉🎆🚚</h2>
+                    <h2>Glückwunsch, Bestellung bestätigt!</h2>
+                    <p>Dein Essen ist auf dem Weg!</p>
+                <form method="dialog">
+                    <button onclick="document.getElementById('basketField').classList.remove('visible'); this.closest('dialog').close();">
+                        OK
+                    </button>
+                </form>
+            </div>
+        </dialog>`;
+
 }
+
+
+
+
+function getMobileMenuTemplate() {
+    return `
+       <nav class="mobile-menu">
+            <button class="menu-btn"><i class="fas fa-home" onclick="goTo('jumpToHeader')" ></i></button>
+            <button class="menu-btn"><i class="fas fa-user"></i></button>
+            <button class="menu-btn"><i class="fas fa-receipt" onclick="goTo('menuContent')" ></i></button>
+            <button class="menu-btn"><i class="fas fa-basket-shopping" onclick="goTo('basketField')" ></i></button>
+      </nav>
+
+    `;
+}
+
+
+
