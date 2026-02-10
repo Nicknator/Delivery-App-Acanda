@@ -1,28 +1,32 @@
-
 function getMenuTemplate(dish) {
-    return ` 
-        <div class="menuTemplate">
-            <div>
-                <img src="img/${dish.image}" alt="${dish.name}">
-            </div>
-
-            <div class="contentPosition">
-                <div class="titleRow">
-                    <p class="name">${dish.name}</p>
-                    <p class="price desktopPrice">${dish.price} €</p>
-                </div>
-                <p class="description">${dish.description}</p>
-
-                ${renderDishControls(dish)}
-
-                <!-- Preis nur für Mobile -->
-                <p class="price responsivPrice">${dish.price} €</p>
-                
-
-            </div>
+    return `
+    <div class="menuTemplate">
+        <div class="menuImage">
+            <img src="img/${dish.image}" alt="${dish.name}">
         </div>
+
+        <div class="contentPosition">
+            <div class="dishRow">
+                <div class="frame354">
+                    <p class="dishName">${dish.name}</p>
+                    <p class="description">${dish.description}</p>
+                </div>
+
+                <div class="frame355">
+                    <p class="price desktopPrice">${dish.price} €</p>
+                    ${renderDishControls(dish)} <!-- Hier nutzen wir die Funktion -->
+                </div>
+            </div>
+
+            <p class="price responsivPrice">${dish.price} €</p>
+        </div>
+    </div>
     `;
 }
+
+
+
+
 
 
 

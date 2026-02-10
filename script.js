@@ -69,21 +69,24 @@ function orderButton() {
 
 
 function addBasket(name, price) {
+
     const basketField = document.getElementById('basketField');
-    basketField.style.display = 'flex'; // Basket sichtbar machen
+    basketField.classList.add('visible'); // ← HIER rein!
+
     let foundObject = basket.find(item => item.name === name);
+
     if (foundObject) {
         foundObject.amount++;
     } else {
-        basket.push({
-            name: name,
-            price: price,
-            amount: 1
-        });
+        basket.push({ name, price, amount: 1 });
     }
+
     renderBasket();
-    renderMenu(); // Buttons updaten
+    renderMenu();
 }
+
+
+
 
 
 
@@ -92,19 +95,19 @@ function addBasket(name, price) {
 
 function minusBasket(name) {
     let foundObject = basket.find(item => item.name === name);
-    if (foundObject) {
-        if (foundObject.amount > 1) {
-            foundObject.amount--;
-        }
-        else {
 
-            let index = basket.indexOf(foundObject);
-            basket.splice(index, 1);
-        }
-        renderBasket();
-        renderMenu();
+    if (!foundObject) return;
+
+    if (foundObject.amount > 1) {
+        foundObject.amount--;
+    } else {
+        basket = basket.filter(item => item.name !== name);
     }
+
+    renderBasket();
+    renderMenu(); // ← WICHTIG!
 }
+
 
 
 
@@ -114,13 +117,20 @@ function getAmount(name) {
     return item ? item.amount : 0;
 }
 
+
 function renderDishControls(dish) {
+
     let amount = getAmount(dish.name);
+
     if (amount === 0) {
         return `
-            <button onclick="addBasket('${dish.name}', ${dish.price})
-            document.getElementById('basketField').classList.add('visible');"> Hinzufügen</button>`;
+            <button onclick="addBasket('${dish.name}', ${dish.price})"
+                class="button">
+                Hinzufügen
+            </button>
+        `;
     }
+
     return `
         <div class="counter">
             <button onclick="minusBasket('${dish.name}')">-</button>
@@ -129,6 +139,13 @@ function renderDishControls(dish) {
         </div>
     `;
 }
+
+
+
+
+
+
+
 
 
 

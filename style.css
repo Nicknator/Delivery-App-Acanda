@@ -102,13 +102,17 @@ body {
     object-fit: cover;
     border-radius: 50%;
     background-color: var(--neon-red);
-    border: 15px solid rgb(255, 255, 255);
+    border: 10px solid #FDEADC;
     margin-top: -100px;
     z-index: 2;
-
     transform: scale(1.3);
-    /* 🔍 Zoom */
     transform-origin: center;
+    rotate: 0deg;
+    opacity: 1;
+    top: 432px;
+    left: 620px;
+    border-width: 13px;
+
 }
 
 /* Hero-section             */
@@ -138,32 +142,83 @@ body {
 }
 
 h1 {
-    margin: 0;
-    font-size: 32px;
+    font-family: Palanquin Dark;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 48px;
+    text-box-trim: none;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: center;
+
 }
 
 .frame-28 {
+    width: 110;
+    height: 32;
+    opacity: 1;
+    border-radius: 4px;
+    gap: 8px;
+    padding-top: 4px;
+    padding-right: 5px;
+    padding-bottom: 4px;
+    padding-left: 5px;
+    background-color: #FACAAC;
     display: flex;
     align-items: center;
-    gap: 8px;
+
+
 }
 
 .starField {
-    color: #FFC107;
+    color: #363534;
     font-size: 24px;
+    opacity: 1;
+    border-radius: 0.5px;
+
 }
 
 .frame-27 a {
     text-decoration: none;
     color: #666;
     font-size: 18px;
+
+}
+
+
+.rating {
+    font-family: Palanquin Dark;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #363534;
+
+}
+
+.reviews {
+    font-family: Palanquin;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #726D6D;
+
+
 }
 
 .textFrame {
-    margin: 0;
-    font-size: 20px;
-    color: #333;
+    font-family: Palanquin;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 24px;
+    text-box-trim: none;
+    line-height: 120%;
+    letter-spacing: 0%;
     text-align: center;
+
 }
 
 /* restaurant-info area             */
@@ -178,7 +233,7 @@ h1 {
     justify-content: flex-start;
     /* ← links ausrichten */
     align-items: flex-start;
-    gap: 20px;
+    gap: 30px;
     /* Abstand zwischen Menü und Basket */
     width: 100%;
     max-width: 1440px;
@@ -190,7 +245,13 @@ h1 {
     width: 713px;
     flex-shrink: 0;
     background-color: #f9f9f9;
+    width: 713px;
+    margin-left: 119px;
 }
+
+
+
+
 
 .iconSet {
     width: 100px;
@@ -207,7 +268,9 @@ h1 {
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
-
+    height: 91px;
+    opacity: 1;
+    top: 810px;
 }
 
 
@@ -246,43 +309,64 @@ h1 {
     gap: 16px;
     padding: 16px;
     background-color: #EEEDEB;
-    /* Nur Karten */
     border-radius: 12px;
-    margin-bottom: 1px;
-    /* Abstand zwischen Karten */
-    margin-top: 20px
+    margin-bottom: 20px;
 }
 
 
 
-.menuTemplate img {
-    width: 120px;
-    height: 120px;
+.menuImage img {
+    width: 207px;
+    height: 121px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 12px;
 }
 
-.contentPosition {
-    flex: 1;
+
+
+
+
+.dishRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.frame354 {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    border-radius: 10px;
+    gap: 8px;
+    flex: 1; /* links nimmt verfügbaren Platz */
+}
+
+.frame355 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 60px;
 }
 
 
 
-.contentPosition button {
-    width: 80px;
-    height: 30px;
+
+.button {
+    width: 115px;
+    height: 35px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: Palanquin;
+    font-weight: 600;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    align-self: flex-end;
-    cursor: pointer;
-    border-radius: 20px;
 }
+
+
+
+
+
 
 
 
@@ -296,22 +380,46 @@ h1 {
     align-items: center;
 }
 
-.name {
+
+.dishName {
     font-weight: bold;
-    font-size: 18px;
     margin: 0;
+    font-family: Palanquin;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #363534;
 }
+
+
 
 .price {
     font-weight: bold;
     margin: 0;
+    font-family: Palanquin;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+
+
 }
+
+
 
 .description {
     color: #666;
     font-size: 14px;
     margin: 8px 0;
+    font-family: Palanquin;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    color: #363534;
 }
+
+
+
 
 
 
@@ -838,6 +946,7 @@ h1 {
         margin-top: auto;
         align-self: flex-end;
         margin-bottom: -30px;
+
     }
 
 }
