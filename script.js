@@ -27,7 +27,7 @@ function renderMenu() {
 
 function renderBasket() {
     let basketField = document.getElementById("basketField");
-    basketField.innerHTML = `<h2 class="headlineBasket">Dein Warenkorb</h2>`;
+    basketField.innerHTML = `<h2 class="h2 headlineBasket">Dein Warenkorb</h2>`;
     basketField.innerHTML += `<div class="basket-container" id="basketItemsContainer"></div>`;
     let basketItemsContainer = document.getElementById("basketItemsContainer");
 
@@ -51,14 +51,17 @@ function renderBasket() {
 
 
 
+
 function orderButton() {
     const basketField = document.getElementById('basketField');
     const dialogHTML = getOrderButtonTemplate();
     document.body.insertAdjacentHTML('beforeend', dialogHTML);
     basket = [];
-    basketField.style.display = 'none';
+    basketField.classList.remove('visible');
+    renderBasket();
     renderMenu();
 }
+
 
 
 

@@ -13,12 +13,12 @@ function getMenuTemplate(dish) {
                 </div>
 
                 <div class="frame355">
-                    <p class="price desktopPrice">${dish.price} €</p>
-                    ${renderDishControls(dish)} <!-- Hier nutzen wir die Funktion -->
+                    <p class="price desktopPrice">${dish.price.toFixed(2)} €</p>
+                    ${renderDishControls(dish)} <!-- Funktion für Button -->
                 </div>
             </div>
 
-            <p class="price responsivPrice">${dish.price} €</p>
+            
         </div>
     </div>
     `;
@@ -36,25 +36,34 @@ function getBasketItemTemplate(item) {
     let totalPrice = item.price * item.amount;
     return `
         <div class="basket-item typography">
-            
-                <div class="dishBasketField">
-                    <span>${item.amount}x ${item.name}</span>
-                </div>
 
-                <div class="priceButtonField">
-                    <div class="addTrashButtonField">
-                        <button onclick="minusBasket('${item.name}')"><span>&#128465;</span></button>
-                        <p>1</p>
-                        <button onclick="addBasket('${item.name}', ${item.price}) ">+</button>
-                    </div>
+    <div class="dishBasketField">
+        <span class="headline2">${item.amount}x ${item.name}</span>
+    </div>
 
-                    <span>${totalPrice.toFixed(2)} €</span>
-                </div>
+    <div class="priceButtonField">
+        <div class="addTrashButtonField">
+
+            <button onclick="minusBasket('${item.name}')" class="addMinusButton">
+                <span>&#128465;</span>
+            </button>
+
+            <p>${item.amount}</p>
+
+            <button onclick="addBasket('${item.name}', ${item.price})" class="addMinusButton">
+                +
+            </button>
+
+        </div>
+
+        <span class="headline2">${totalPrice.toFixed(2)} €</span>
+    </div>
 
 
-                
 
-        </div>`;
+
+
+</div>`;
 
 }
 
@@ -85,8 +94,7 @@ function getBasketTotalTemplate(sum, totalSum) {
 
 
             <div class="buttonFieldSet" >
-            <button class="buttonSet" onclick="orderButton('')" > 
-            <h2 class="buttonFrontSet">Jetzt bestellen (${totalSum.toFixed(2)} €)</h2></button>
+            <button class="buttonSet" onclick="orderButton('')" > Jetzt bestellen (${totalSum.toFixed(2)} €)</button>
             </div>
          </div>
         `;

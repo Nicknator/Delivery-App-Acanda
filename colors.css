@@ -28,10 +28,7 @@
 
 
 
-.streetFoodDish h2 {
-    font-size: 30px;
 
-}
 
 .basket-field {
     background-color: var(--dark-bg);
@@ -52,10 +49,7 @@
 }
 
 
-
-
-
-.headlineBasket {
+.h2{
     color: var(--white-wh);
 }
 
