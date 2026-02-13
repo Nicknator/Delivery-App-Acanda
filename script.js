@@ -1,80 +1,107 @@
 let basket = [];
 let deliveryCosts = 5;
+
 renderMenu();
 renderBasket();
 mobileMenu();
 
+
 function renderMenu() {
-    let menuContent = document.getElementById("menuContent");
+    const menuContent = document.getElementById("menuContent");
     menuContent.innerHTML = "";
+
     dataMenu.forEach(category => {
+        // Kategorie-Header
         menuContent.innerHTML += `
         <div class="streetFoodDish">
-        <img src="${category.image}" class="iconSet">
-        <h2>${category.category}</h2>
-        </div>
-        `
+            <img src="${category.image}" class="iconSet">
+            <h2>${category.category}</h2>
+        </div>`;
+
+        // Gerichte
         category.dish.forEach(dish => {
             menuContent.innerHTML += getMenuTemplate(dish);
-        }
-        );
+        });
     });
 }
 
 
 
 
+function renderDishControls(dish) {
+    const amount = getAmount(dish.name);
+
+    if (amount === 0) {
+        return `
+            <button onclick="addBasket('${dish.name}', ${dish.price})" class="button">
+                Hinzufügen
+            </button>
+        `;
+    }
+    else {
+        return `
+        <div class="counter">
+            <button onclick="minusBasket('${dish.name}')">-</button>
+            <span>${amount}</span>
+            <button onclick="addBasket('${dish.name}', ${dish.price})">+</button>
+        </div>
+    `;
+    }
+}
+
+
+function getAmount(name) {
+    const item = basket.find(d => d.name === name);
+    return item ? item.amount : 0;
+}
+
+function updateDishControls(name) {
+    const controls = document.querySelector(`.dish-controls[data-name="${name}"]`);
+    if (!controls) return;
+
+    // Dish-Objekt aus Daten holen
+    let dish;
+    dataMenu.forEach(cat => {
+        const found = cat.dish.find(d => d.name === name);
+        if (found) dish = found;
+    });
+
+    if (!dish) return;
+
+    controls.innerHTML = renderDishControls(dish);
+}
 
 function renderBasket() {
-    let basketField = document.getElementById("basketField");
-    basketField.innerHTML = `<h2 class="h2 headlineBasket">Dein Warenkorb</h2>`;
-    basketField.innerHTML += `<div class="basket-container" id="basketItemsContainer"></div>`;
-    let basketItemsContainer = document.getElementById("basketItemsContainer");
+    const basketField = document.getElementById("basketField");
+    basketField.innerHTML = basketHeaderWrapperTemplate();
 
+    // basketField.innerHTML += `<div class="basket-container" id="basketItemsContainer"></div>`;
+
+    const basketItemsContainer = document.getElementById("basketItemsContainer");
     let sum = 0;
 
-    basket.forEach((item) => {
-        let totalPrice = item.price * item.amount;
+    basket.forEach(item => {
+        const totalPrice = item.price * item.amount;
         sum += totalPrice;
 
         basketItemsContainer.innerHTML += getBasketItemTemplate(item);
     });
 
     if (basket.length > 0) {
-        let totalSum = sum + deliveryCosts;
+        const totalSum = sum + deliveryCosts;
         basketField.innerHTML += getBasketTotalTemplate(sum, totalSum);
     }
 }
 
-
-
-
-
-
-
-function orderButton() {
-    const basketField = document.getElementById('basketField');
-    const dialogHTML = getOrderButtonTemplate();
-    document.body.insertAdjacentHTML('beforeend', dialogHTML);
-    basket = [];
-    basketField.classList.remove('visible');
-    renderBasket();
-    renderMenu();
+function closeBasket() {
+    document.getElementById("basketField").classList.remove("visible");
 }
 
 
 
-
-
-
-
-
-
-
 function addBasket(name, price) {
-
-    const basketField = document.getElementById('basketField');
-    basketField.classList.add('visible'); // ← HIER rein!
+    const basketField = document.getElementById("basketField");
+    basketField.classList.add("visible");
 
     let foundObject = basket.find(item => item.name === name);
 
@@ -85,20 +112,11 @@ function addBasket(name, price) {
     }
 
     renderBasket();
-    renderMenu();
+    updateDishControls(name);
 }
-
-
-
-
-
-
-
-
 
 function minusBasket(name) {
     let foundObject = basket.find(item => item.name === name);
-
     if (!foundObject) return;
 
     if (foundObject.amount > 1) {
@@ -108,64 +126,34 @@ function minusBasket(name) {
     }
 
     renderBasket();
-    renderMenu(); // ← WICHTIG!
+    updateDishControls(name);
 }
 
 
 
 
+function orderButton() {
+    const basketField = document.getElementById("basketField");
+    const dialogHTML = getOrderButtonTemplate();
+    document.body.insertAdjacentHTML("beforeend", dialogHTML);
 
-function getAmount(name) {
-    let item = basket.find(d => d.name === name);
-    return item ? item.amount : 0;
+    basket = [];
+    basketField.classList.remove("visible");
+    renderBasket();
+    renderMenu();
 }
 
 
-function renderDishControls(dish) {
-
-    let amount = getAmount(dish.name);
-
-    if (amount === 0) {
-        return `
-            <button onclick="addBasket('${dish.name}', ${dish.price})"
-                class="button">
-                Hinzufügen
-            </button>
-        `;
-    }
-
-    return `
-        <div class="counter">
-            <button onclick="minusBasket('${dish.name}')">-</button>
-            <span>${amount}</span>
-            <button onclick="addBasket('${dish.name}', ${dish.price})">+</button>
-        </div>
-    `;
+function goTo(targetID) {
+    document.getElementById(targetID).scrollIntoView({ behavior: "smooth" });
 }
-
-
-
-
-
-
-
-
-
-
-
-function goTo(tarketID) {
-    document.getElementById(tarketID).scrollIntoView({ behavior: 'smooth' });
-}
-
-
-
 
 function mobileMenu() {
-    let mobileField = document.getElementById("mobileField");
+    const mobileField = document.getElementById("mobileField");
     mobileField.innerHTML = getMobileMenuTemplate();
 }
 
 
-
-
-
+function formatPrice(price) {
+    return price.toFixed(2).replace('.', ',') + '';
+}

@@ -65,6 +65,10 @@
 
 }
 
+.closeBTN{
+    color: var(--white-wh);
+}
+
 
 
 .footer {
