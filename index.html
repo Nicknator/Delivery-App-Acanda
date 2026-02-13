@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Palanquin:wght@400;600;700&display=swap" rel="stylesheet">
+    
 
 
 
@@ -18,16 +19,20 @@
 </head>
 
 <body>
-    <div class="container">
-        <header class="header" id="jumpToHeader">
+    <!-- Header Full Width -->
+    <header class="header" id="jumpToHeader">
+        <div class="header-inner">
             <img src="img/doorsnap-logo.png" alt="doorsnap-logo" class="header-img">
             <div class="triplebar-container">
                 <div class="TripleBar"></div>
                 <div class="TripleBar"></div>
                 <div class="TripleBar"></div>
             </div>
-        </header>
+        </div>
+    </header>
 
+    <!-- Content -->
+    <div class="container">
         <section class="hero-section">
             <div class="header-photo">
                 <img src="img/food-img.png" alt="Street-Food-img">
@@ -39,7 +44,6 @@
             <div class="frame-89">
                 <h1>KrosseKrabbe</h1>
                 <div class="frame-28">
-
                     <div class="frame-27">
                         <span class="starField">★</span>
                         <a class="rating">4,5</a> <a class="reviews"> (319)</a>
@@ -47,35 +51,24 @@
                 </div>
             </div>
             <p class="textFrame">Hier wird jeder Biss zum Abenteuer!</p>
-
         </section>
-
-
-
-
 
         <div class="content-wrapper">
             <main class="menuList" id="menuContent"></main>
-            <aside class="basket-field " id="basketField">
-
-            </aside>
+            <aside class="basket-field" id="basketField"></aside>
         </div>
 
+        <div id="mobileField"></div>
+    </div>
 
-        <div id="mobileField">
-
-        </div>
-
-
-
-
-
-        <footer class="footer">
+    <!-- Footer Full Width -->
+    <footer class="footer">
+        <div class="footer-inner">
             <p>2026 Doorsnap</p>
             <p>Imprint</p>
             <p>Cookie Preferences</p>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
 
     <script src="menuData.js"></script>
@@ -84,6 +77,3 @@
 </body>
 
 </html>
-
-
-

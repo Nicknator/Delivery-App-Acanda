@@ -157,3 +157,10 @@ function mobileMenu() {
 function formatPrice(price) {
     return price.toFixed(2).replace('.', ',') + '';
 }
+
+
+function openBasket() {
+    const basketField = document.getElementById("basketField");
+    basketField.classList.add("visible");
+    basketField.scrollIntoView({ behavior: "smooth" });
+}
