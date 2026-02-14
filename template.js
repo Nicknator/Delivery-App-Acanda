@@ -103,9 +103,8 @@ function getMobileMenuTemplate() {
             <button class="menu-btn"><i class="fas fa-home" onclick="goTo('jumpToHeader')"></i></button>
             <button class="menu-btn"><i class="fas fa-user"></i></button>
             <button class="menu-btn"><i class="fas fa-receipt" onclick="goTo('menuContent')"></i></button>
-            <button class="menu-btn">
-                <i class="fas fa-basket-shopping" onclick="openBasket()"></i>
-            </button>
+            <button class="menu-btn" onclick="goTo('basketField')"><i class="fas fa-basket-shopping"></i><span class="basket-badge" id="basketBadge">0</span></button>
+
         </nav>`;
 }
 

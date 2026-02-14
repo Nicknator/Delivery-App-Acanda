@@ -76,7 +76,7 @@ function renderBasket() {
     basketField.innerHTML = basketHeaderWrapperTemplate(); // Header immer
 
     const basketItemsContainer = document.getElementById("basketItemsContainer");
-    let html = ""; 
+    let html = "";
     let sum = 0;
 
     basket.forEach(item => {
@@ -85,7 +85,7 @@ function renderBasket() {
         html += getBasketItemTemplate(item);
     });
 
-    basketItemsContainer.innerHTML = html; 
+    basketItemsContainer.innerHTML = html;
 
     if (basket.length > 0) {
         const totalSum = sum + deliveryCosts;
@@ -118,11 +118,13 @@ function addBasket(name, price) {
     renderBasket();
     updateDishControls(name);
 
-    
+
     const basketItemsContainer = document.getElementById("basketItemsContainer");
     if (basketItemsContainer) {
         basketItemsContainer.scrollTop = basketItemsContainer.scrollHeight;
     }
+    updateBasketBadge();
+
 }
 
 
@@ -138,6 +140,8 @@ function minusBasket(name) {
 
     renderBasket();
     updateDishControls(name);
+    updateBasketBadge();
+
 }
 
 
@@ -146,6 +150,8 @@ function deleteBasketItem(name) {
     basket = basket.filter(item => item.name !== name);
     renderBasket();
     updateDishControls(name);
+    updateBasketBadge();
+
 }
 
 
@@ -161,6 +167,8 @@ function orderButton() {
     basketField.classList.remove("visible");
     renderBasket();
     renderMenu();
+    updateBasketBadge();
+
 }
 
 
@@ -185,6 +193,20 @@ function openBasket() {
 
 function closeBasket() {
     document.getElementById("basketField").classList.remove("visible");
+}
+
+
+
+function updateBasketBadge() {
+    const badge = document.getElementById("basketBadge");
+    const totalItems = basket.reduce((sum, item) => sum + item.amount, 0);
+    badge.textContent = totalItems;
+
+    if (totalItems === 0) {
+        badge.style.display = "none";
+    } else {
+        badge.style.display = "flex";
+    }
 }
 
 
