@@ -44,14 +44,17 @@ function getBasketItemTemplate(item) {
 
             <div class="priceButtonField">
                 <div class="addTrashButtonField">
+                    <button onclick="deleteBasketItem('${item.name}')" class="deleteButton">🗑️</button>
                     <button onclick="minusBasket('${item.name}')" class="addMinusButton">-</button>
-                    <p>${1}</p>
+                    <p>${item.amount}</p>
                     <button onclick="addBasket('${item.name}', ${item.price})" class="addMinusButton">+</button>
+                    
                 </div>
                 <span class="headline2">${formatPrice(totalPrice)} €</span>
             </div>
         </div>`;
 }
+
 
 function getBasketTotalTemplate(sum, totalSum) {
     return `
