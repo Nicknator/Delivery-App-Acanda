@@ -12,6 +12,7 @@ function renderMenu() {
 
     dataMenu.forEach(category => {
         html += `
+        
         <div class="streetFoodDish">
             <img src="${category.image}" class="iconSet">
             <h2>${category.category}</h2>
@@ -176,6 +177,8 @@ function goTo(targetID) {
     document.getElementById(targetID).scrollIntoView({ behavior: "smooth" });
 }
 
+
+
 function mobileMenu() {
     const mobileField = document.getElementById("mobileField");
     mobileField.innerHTML = getMobileMenuTemplate();
@@ -188,26 +191,61 @@ function formatPrice(price) {
 
 
 function openBasket() {
-    document.getElementById("basketField").classList.add("visible");
+    const basketField = document.getElementById("basketField");
+    const desktopBtn = document.getElementById("desktopBasketBtn");
+
+    // Basket sichtbar machen
+    basketField.classList.add("visible");
+
+    // Desktop-Button ausblenden
+    if (desktopBtn) desktopBtn.style.display = "none";
+
+    // Basket-Inhalt scrollen
+    const basketItemsContainer = document.getElementById("basketItemsContainer");
+    if (basketItemsContainer) basketItemsContainer.scrollTop = basketItemsContainer.scrollHeight;
+
+    // Badge aktualisieren
+    updateBasketBadge();
 }
 
 function closeBasket() {
-    document.getElementById("basketField").classList.remove("visible");
+    const basketField = document.getElementById("basketField");
+    const desktopBtn = document.getElementById("desktopBasketBtn");
+
+    // Basket ausblenden
+    basketField.classList.remove("visible");
+
+    // Desktop-Button wieder einblenden
+    if (desktopBtn) desktopBtn.style.display = "flex";
 }
+
+
+
 
 
 
 function updateBasketBadge() {
     const badge = document.getElementById("basketBadge");
     const totalItems = basket.reduce((sum, item) => sum + item.amount, 0);
-    badge.textContent = totalItems;
 
-    if (totalItems === 0) {
-        badge.style.display = "none";
-    } else {
-        badge.style.display = "flex";
+    if (badge) {
+        badge.textContent = totalItems;
+        badge.style.display = totalItems === 0 ? "none" : "flex";
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
